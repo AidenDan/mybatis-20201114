@@ -40,6 +40,7 @@ public class MybatisTest {
         this.sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
     }
 
+    // 测试testQueryUserById
     @Test
     public void testQueryUserById() {
         HashMap<Object, Object> hashMap = Maps.newHashMap();
