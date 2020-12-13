@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql，实际开发中多用于 Mapper 代理中绑定接口 -->
+<mapper namespace="com.mybatis.dao.IRunningAccountDao">
+
+    <resultMap id="RunningAccountResultMap" type="com.mybatis.domain.RunningAccount">
+        <id column="serialized_id" property="serializeId"/>
+    </resultMap>
+
+    <insert id="insertRunningAccountItems" >
+        insert into table_running_count (serialize_id)
+        values (#{serializeId})
+    </insert>
+
+</mapper>

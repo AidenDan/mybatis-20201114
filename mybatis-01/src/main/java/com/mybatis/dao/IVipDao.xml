@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql，实际开发中多用于 Mapper 代理中绑定接口 -->
+<mapper namespace="com.mybatis.dao.IVipDao">
+
+    <resultMap id="vipInfoResultMap" type="com.mybatis.domain.Vip">
+        <id column="vip_id" property="id"/>
+        <result column="vip_name" property="name"/>
+        <result column="vip_age" property="age"/>
+        <result column="vip_sex" property="sex"/>
+        <result column="vip_height" property="height"/>
+    </resultMap>
+    <!-- id：statement的id，或者叫做sql的id-->
+    <!-- parameterType：声明输入参数的类型 -->
+    <!-- resultType：声明输出结果的类型 -->
+    <!-- #{}：输入参数的占位符，相当于jdbc的占位符'?' -->
+    <select id="getAllVipInfo"  resultMap="vipInfoResultMap">
+        select * from table_vip
+    </select>
+
+    <insert id="insertOneVipInfo">
+        insert into table_vip (vip_name, vip_age, vip_sex, vip_height)
+        values (#{name}, #{age}, #{sex}, #{height})
+    </insert>
+
+</mapper>
